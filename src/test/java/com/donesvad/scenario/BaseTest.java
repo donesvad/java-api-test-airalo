@@ -1,11 +1,12 @@
 package com.donesvad.scenario;
 
-import com.donesvad.action.CarsAction;
+import com.donesvad.action.AiraloAction;
 import com.donesvad.configuration.SpringConfiguration;
-import com.donesvad.mock.CarsMock;
-import com.donesvad.util.TestContext;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
+import io.restassured.config.ObjectMapperConfig;
+import io.restassured.config.RestAssuredConfig;
 import io.restassured.filter.Filter;
 import io.restassured.filter.log.ResponseLoggingFilter;
 import java.util.LinkedList;
@@ -23,9 +24,8 @@ import org.springframework.core.env.Environment;
 @SpringBootTest(classes = SpringConfiguration.class)
 public abstract class BaseTest {
 
-  @Autowired protected CarsAction carsAction;
-  @Autowired protected CarsMock carsMock;
-  @Autowired protected TestContext testContext;
+  @Autowired protected AiraloAction airaloAction;
+  @Autowired private ObjectMapper objectMapper;
 
   @BeforeAll
   public static void setup(@Autowired Environment env) {
@@ -43,7 +43,13 @@ public abstract class BaseTest {
   public static void tearDown() {}
 
   @BeforeEach
-  public void init() {}
+  public void init() {
+    RestAssured.config =
+        RestAssuredConfig.config()
+            .objectMapperConfig(
+                new ObjectMapperConfig()
+                    .jackson2ObjectMapperFactory((cls, charset) -> objectMapper));
+  }
 
   @AfterEach
   public void cleanUp() {}

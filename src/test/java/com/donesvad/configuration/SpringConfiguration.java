@@ -25,7 +25,7 @@ import org.springframework.test.context.ContextConfiguration;
       "classpath:test-data-${environment:dev}.yml"
     },
     factory = YamlPropertySourceFactory.class)
-@ContextConfiguration
+@ContextConfiguration(classes = {SpringConfiguration.class})
 public class SpringConfiguration {
 
   @Bean

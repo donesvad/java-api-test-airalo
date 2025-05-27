@@ -1,9 +1,7 @@
-car:
-  make:
-    id: 10005
-    name: 357 GOLF CARTS
-  manufacturer:
-    id: 955
-    name: TESLA, INC.
-    common-name: Tesla
-    country: UNITED STATES (USA)
+user:
+  client_id: 7e29e2facf83359855f746fc490443e6
+  client_secret: e5NNajm6jNAzrWsKoAdr41WfDiMeS1l6IcGdhmbb
+  grant_type: client_credentials
+order:
+  package_id: merhaba-7days-1gb
+  quantity: 6

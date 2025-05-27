@@ -1,6 +1,6 @@
-cars-service-rest:
-  host: vpic.nhtsa.dot.gov
+airalo-service-rest:
+  host: sandbox-partners-api.airalo.com
   protocol: https
-  base-path: /api/vehicles
+  base-path: /v2
 log:
   rest-assured-responses: false
