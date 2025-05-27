@@ -1,5 +1,7 @@
 # Java API E2E Test Framework
 
+## Disclaimer: This repository is based on the original open-source template repository, primarily adjusted to fit the provided API Automation Test exercise. You can find the original repository here: https://github.com/donesvad/java-api-test.
+
 ## Overview
 
 This project is an end-to-end (E2E) test framework for API testing using Java. The framework leverages several powerful libraries and tools to provide
